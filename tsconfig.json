@@ -18,7 +18,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "types": ["react", "react-dom", "react-router-dom"],
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@nextui-org/react": ["node_modules/@nextui-org/react/dist/index.d.ts"]
+    }
   },
   "include": [
     "src"
