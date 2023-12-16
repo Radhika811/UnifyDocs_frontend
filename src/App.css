@@ -79,5 +79,22 @@ body {
 .UnifyDocs {
   margin-left: 30px;
 }
+
+.MediaCard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  justify-content: flex-start;
+}
+
+.Card {
+  margin-bottom: 3%;
+  margin-right: 2%;
+}
+
 /* Add additional styling as needed */
 
