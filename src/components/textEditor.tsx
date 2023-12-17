@@ -11,14 +11,24 @@ import Button from '@mui/material/Button';
 
 const TextEditor = () => {
   const [content, setContent] = useState('');
+  const [title, setTitle] = useState('');
   const { docId } = useParams();
-
+  console.log(docId)
+  console.log(content)
   useEffect(() => {
     const fetchData = async () => {
+      console.log("fetchData")
+
+      const headers={
+        'Content-Type': "application/json",
+      };
       try {
-        const url = `http://localhost:8000/documents/${docId}`;
-        const response = await axios.get(url);
+        const url = `http://localhost:8000/documents/${docId}/`;
+        const response = await axios.post(url, {headers});
+        console.log("response : ")
+        console.log(response.data)
         setContent(response.data.content);
+        setTitle(response.data.name);
       } catch (error) {
         console.log('Error fetching document:', error);
       }
@@ -27,7 +37,7 @@ const TextEditor = () => {
     if (docId) {
       fetchData();
     }
-  }, [docId]);
+  }, []);
 
   const handleEditorChange = (value:string) => {
     setContent(value);
@@ -72,7 +82,7 @@ const TextEditor = () => {
       bgcolor="#f0f0f0" // Set your desired background color
     >
 
-      <p>Title</p>
+      <p>{ title }</p>
       <Box
         width="70%" // Adjust the width as needed
         minHeight="500px"

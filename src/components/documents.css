@@ -1,0 +1,20 @@
+.documents {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 5%;
+    justify-content: flex-start;
+  }
+
+.MediaCard {
+    margin-bottom: 3%;
+    margin-right: 2%;
+}
+
+.docHeading {
+    margin-top: 20;
+    margin-left: 20px;
+}

@@ -1,26 +1,16 @@
-// authReducer.ts
-interface AuthState {
-    isLoggedIn: boolean;
-    username?: string;
-  }
-  
-  const initialState: AuthState = {
+import { createSlice } from "@reduxjs/toolkit";
+
+const authSlice = createSlice({
+  name: 'auth',
+  initialState: {
     isLoggedIn: false,
-  };
-  
-  const authReducer = (state = initialState, action: any): AuthState => {
-    switch (action.type) {
-      case 'LOGIN':
-        return {
-          isLoggedIn: true,
-          username: action.payload.username,
-        };
-      case 'LOGOUT':
-        return initialState;
-      default:
-        return state;
+  },
+  reducers: {
+    login(state, action) {
+      state.isLoggedIn = true;
+    },
+    logout(state, action) {
+      state.isLoggedIn = false;
     }
-  };
-  
-  export default authReducer;
-  
+  }
+})
