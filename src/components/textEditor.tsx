@@ -5,7 +5,6 @@ import 'react-quill/dist/quill.bubble.css';
 import { useParams } from 'react-router-dom';
 import { Box } from '@mui/material';
 import axios from 'axios';
-// import Button from '@mui/material';
 import Button from '@mui/material/Button';
 
 
@@ -43,33 +42,23 @@ const TextEditor = () => {
     setContent(value);
   };
   const url = `http://localhost:8000/documents/${docId}/`;
-
   const handleUpdateDocument = async () => {
     try {
       // const url = `http://localhost:8000/documents/${docId}/`;
       const response = await axios.get(url);
-  
-      // Get the existing document data
       const existingDocument = response.data;
-      const authToken=localStorage.getItem('auth_token')
-      console.log(authToken);
-
       const headers={
-        // 'Authorization': `Token ${authToken}`,
         'Content-Type': "application/json",
 
       };
-  
-      // Update the content field
+
       existingDocument.content = content;
-  
-      // Save the updated document
+
       const updateResponse = await axios.put(url, existingDocument,{headers});
       console.log('Document updated successfully:', updateResponse.data);
     } catch (error) {
       console.log('Error updating document:', error);
     }
-    // console.log({content})
   };
 
   return (
@@ -115,7 +104,6 @@ const TextEditor = () => {
           style={{ border: '1px solid #ccc', color: 'black' }}
         />
       </Box>
-          {/* <Button>Update</Button> */}
           <Button variant="contained" color="primary" onClick={handleUpdateDocument}>
         Update
       </Button>

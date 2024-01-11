@@ -34,7 +34,7 @@ const MediaCard: React.FC<MediaCardProps> = ({ documentData, onOpenClick, onLear
       </CardContent>
       <CardActions sx={{ paddingTop: 0}}>
         <Button sx={{ fontSize: 10}} onClick={() => onOpenClick(documentData)}>Open</Button>
-        <Button sx={{ fontSize: 10}} onClick={() => onLearnMoreClick(documentData)}>Learn More</Button>
+        <Button sx={{ fontSize: 10}} onClick={() => onLearnMoreClick(documentData)}>Delete</Button>
       </CardActions>
     </Card>
   );
